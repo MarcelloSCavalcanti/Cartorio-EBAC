@@ -17,6 +17,7 @@ int registro() //função voltada para o registro
 	scanf("%s", cpf); //criando uma malha de informações para o cpf
 	
 	strcpy(arquivo, cpf); //Responsável por copiar o valor das string
+	strcat(arquivo,".txt"); //Função responsável por alterar o tipo do arquivo
 	
 	FILE *file; //acessar o FILE e cria um file
 	file = fopen(arquivo, "w"); // vai abrir a variável arquivo e reescrever no arquivo
@@ -103,9 +104,10 @@ int deletar() //função voltada para o deletar
 	printf("Digite o CPF a ser deletado: ");
 	scanf("%s",cpf);
 	
+	
 	remove(cpf);
 	
-	FILE *file;
+	FILE *file; //* é um tipo de ponteiro
 	file = fopen(cpf,"r");
 	
 		if(file == NULL) 
@@ -113,6 +115,7 @@ int deletar() //função voltada para o deletar
 	
 		printf("O usuário localizado foi excluído!\n");
 		system("pause");
+		
 		}
 		
 
@@ -137,7 +140,7 @@ int main()
 		printf("\t4 - Sair do sistema\n\n");
 		printf("\topção (digite somente o número): "); //fim do menu
 		
-		scanf("%d", &opcao); //armazenando a escolha do usuário
+		scanf("%d", &opcao); //armazenando a escolha do usuário, & é um tipo de ponteiro
 		
 		system("cls"); //limpar página cabeçalho final da página
 		
