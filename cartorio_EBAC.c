@@ -76,7 +76,7 @@ int consulta() //função voltada para o consulta
 	
 	printf("Digite o CPF a ser consultado");
 	scanf("%s",cpf);
-	
+	strcat(cpf,".txt");
 	FILE *file;
 	file = fopen(cpf,"r"); // ele irá ler o arquivo
 	
@@ -120,32 +120,46 @@ int deletar() //função voltada para o deletar
 		
 
 }
-int main()
+int main() //Função na qual dá início
 {
 	int opcao=0; //definindo variáveis
 	int laco=1;
+	setlocale(LC_ALL, "Portuguese"); //definindo linguagem
+	char senhadigitada[10]="a"; //string para conter toda a informação da senha que o usuário digitar
+	printf("### Cartório da EBAC ### \n\n");
+	printf("Login de administrador!\n\nDigite sua senha \n\n");
+	scanf("%s", senhadigitada);
 	
-	for(laco=1;laco=1;) // criar um ciclo de início e fim
-		{
+	// recomendação para validação de senha do professor seria como nas seguintes linhas
+	// int comparacao após a char senhadigitada[] = "a";
+	
+	// comparacao = strcmp(senhadigitada,"admin");
+	// +
+	// if (comparcao == 0);
+	
+
+	if (strcmp(senhadigitada, "admin") == 0) //função para validar a senha
+	
+			for ( laco = 1; laco = 1; ) // criar um ciclo de início e fim
+			{
 		
-		system ("cls");
+			system ("cls");
 		
-		setlocale(LC_ALL, "Portuguese"); //definindo linguagem
-			
-		printf("### Cartório da EBAC ### \n\n"); //início do menu
-		printf("Escolha a opção desejada do menu:\n\n");
-		printf("\t1 - Registrar nomes\n");
-		printf("\t2 - Consultar nomes\n");
-		printf("\t3 - Deletar nomes\n");
-		printf("\t4 - Sair do sistema\n\n");
-		printf("\topção (digite somente o número): "); //fim do menu
+				
+			printf("### Cartório da EBAC ### \n\n"); //início do menu
+			printf("Escolha a opção desejada do menu:\n\n");
+			printf("\t1 - Registrar nomes\n");
+			printf("\t2 - Consultar nomes\n");
+			printf("\t3 - Deletar nomes\n");
+			printf("\t4 - Sair do sistema\n\n");
+			printf("\topção (digite somente o número): "); //fim do menu
 		
-		scanf("%d", &opcao); //armazenando a escolha do usuário, & é um tipo de ponteiro
+			scanf("%d", &opcao); //armazenando a escolha do usuário, & é um tipo de ponteiro
 		
-		system("cls"); //limpar página cabeçalho final da página
+			system("cls"); //limpar página cabeçalho final da página
 		
-		switch(opcao) // condições
-		{
+			switch(opcao) // condições
+			{
 			case 1:
 			registro();
 			break;
@@ -170,5 +184,8 @@ int main()
 			
 		}
 		} //Fim da seleção
+			else
+			printf("senha incorreta!");
+			
 }
 
